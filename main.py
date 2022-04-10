@@ -121,6 +121,21 @@ while redo_name == 'r' or redo_name == 'R':
                 f.write('')
             print("For the new marketplace to be avalable please re-run the project")
         redo_name = input('If you wish to go back to the main menu press (R) if not press (Enter):')
+    elif do_marketplace=='3':
+        delete_retry='r'
+        while delete_retry=='r' or delete_retry=='R':
+            delete_marketplace=input(f"Enter the name of the contact book you would wish to remove:")
+            if os.path.exists(f"{delete_marketplace}.txt"):
+                os.remove(f"{delete_marketplace}.txt")
+                print("For the contact book to be deleted please re-run the project")
+                delete_retry=input("If you wish to delete another contact book press (R) if not press (Enter)")
+            else:
+                print(f'There is no contact book called "{delete_marketplace}"')
+                delete_retry=input("If you wish to try another name press (R) if not press (Enter)")
+        redo_name=input('If you wish to go back to the main menu press (R) if not press (Enter)')
+    else:
+        print("You did not select a valid option")
+        redo_name = input('If you wish to go back to the main menu press (R) if not press (Enter)')
 
 
 
